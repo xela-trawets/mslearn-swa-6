@@ -21,9 +21,8 @@ public class ProductsGet
 
     [FunctionName("ProductsGet")]
     public async Task<IActionResult> Run(
-        [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null )]
-        HttpRequest req,
-        ILogger log)
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "products" )]
+        HttpRequest req)
     {
         var products = await productData.GetProducts();
 
